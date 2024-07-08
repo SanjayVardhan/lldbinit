@@ -62,7 +62,7 @@ KNOWN BUGS:
 if __name__ == "__main__":
     print("Run only as script from LLDB... Not as standalone program!")
 
-import lldb    
+import lldb
 import sys
 import re
 import os
@@ -101,10 +101,10 @@ CONFIG_USE_CUSTOM_DISASSEMBLY_FORMAT = 1
 # enable all the register command shortcuts
 CONFIG_ENABLE_REGISTER_SHORTCUTS = 1
 # display stack contents on context stop
-CONFIG_DISPLAY_STACK_WINDOW = 0
-CONFIG_DISPLAY_FLOW_WINDOW = 0
+CONFIG_DISPLAY_STACK_WINDOW = 1
+CONFIG_DISPLAY_FLOW_WINDOW = 1
 # display data contents on context stop - an address for the data must be set with "datawin" command
-CONFIG_DISPLAY_DATA_WINDOW = 0
+CONFIG_DISPLAY_DATA_WINDOW = 1
 # disassembly flavor 'intel' or 'att' - default is Intel unless AT&T syntax is your cup of tea
 CONFIG_FLAVOR = "intel"
 
@@ -2243,8 +2243,8 @@ Syntax: crackcmd_noret <address> <register> <value>
         valid = [ "eip", "eax", "ebx", "ebp", "esp", "edi", "esi", "edx", "ecx" ]
     if register not in valid:
             print("[-] error: invalid register for i386 architecture.")
-        print(help)
-        return
+    print(help)
+    return
 
     if value is None:
         print("[-] error: invalid value.")
@@ -5515,7 +5515,7 @@ def HandleHookStopOnTarget(debugger, command, result, dict):
 
     # if we stopped because of a breakpoint try to extract which was it so we can display the name if it exists
     bp_name = ""
-        thread = frame.GetThread()
+    thread = frame.GetThread()
     stop_reason = thread.GetStopReason()
     if stop_reason == lldb.eStopReasonBreakpoint:
         if thread.GetStopReasonDataCount() > 0:
