@@ -101,10 +101,10 @@ CONFIG_USE_CUSTOM_DISASSEMBLY_FORMAT = 1
 # enable all the register command shortcuts
 CONFIG_ENABLE_REGISTER_SHORTCUTS = 1
 # display stack contents on context stop
-CONFIG_DISPLAY_STACK_WINDOW = 1
-CONFIG_DISPLAY_FLOW_WINDOW = 1
+CONFIG_DISPLAY_STACK_WINDOW = 0
+CONFIG_DISPLAY_FLOW_WINDOW = 0
 # display data contents on context stop - an address for the data must be set with "datawin" command
-CONFIG_DISPLAY_DATA_WINDOW = 1
+CONFIG_DISPLAY_DATA_WINDOW = 0
 # disassembly flavor 'intel' or 'att' - default is Intel unless AT&T syntax is your cup of tea
 CONFIG_FLAVOR = "intel"
 
